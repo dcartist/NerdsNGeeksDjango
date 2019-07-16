@@ -10,11 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import django_heroku
-import os
+# import os
 import os
 import psycopg2
 
-DATABASE_URL = os.environ['ec2-54-235-96-48.compute-1.amazonaws.com']
+DATABASE_URL = os.environ['DATABASE_URL']
 # DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nng_main',
+    
 ]
 
 MIDDLEWARE = [
