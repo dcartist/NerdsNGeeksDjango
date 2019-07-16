@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'whitenoise.middleware.WhiteNoiseMiddleware'
             ],
         },
     },
@@ -77,10 +78,15 @@ WSGI_APPLICATION = 'nng_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nerdsandgeeks',
-        'HOST': 'localhost',
-        'USER': 'nerdgod1',
-        'PASSWORD': 'WkEX5DBn',
+        'NAME': 'df9ml35l8mgg1a',
+        # 'NAME': 'nerdsandgeeks',
+        'HOST': 'ec2-54-235-96-48.compute-1.amazonaws.com',
+        # 'HOST': 'localhost',
+        'USER': 'dwnojaoqytsymz',
+        # 'USER': 'nerdgod1',
+        'PASSWORD': '4433a05efd6dbe1a4d5214f4160f2f83fcee416325f7d7c856d9b7f50e840e8b',
+        # 'PASSWORD': 'WkEX5DBn',
+        'PORT': '5432',
     }
 }
 
@@ -133,5 +139,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
